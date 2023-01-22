@@ -8,6 +8,12 @@
 /* Path where the board image is stored */
 #define IMAGE_PATH_BOARD   "images/Board.png"
 
+/* Path where the board image is stored */
+#define IMAGE_PATH_RED_PIECE   "images/Pieces/red.png"
+
+/* Path where the board image is stored */
+#define IMAGE_PATH_BLUE_PIECE   "images/Pieces/blue.png"
+
 /* Square number zero where all the pieces start */
 #define INITIAL_SQUARE   0U
 
