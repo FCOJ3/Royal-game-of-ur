@@ -64,3 +64,26 @@ void initialize_piece(Piece* pc, Player_side which_player)
         printf("Null pointer");
     }
 }
+
+/*
+ * Refer to game_tools.h for further information
+ */
+void initialize_square(Square* sq, GtkWidget* image)
+{
+    static unsigned int id_assignment = FIRST_SQUARE_ID;
+
+    if (NULL != sq && NULL != image)
+    {
+        sq->button = gtk_button_new();
+        if (NULL != sq->button)
+        {
+            gtk_button_set_image(GTK_BUTTON(sq->button), image);
+        }
+        sq->id = id_assignment++;
+        sq->occupied = false;
+    }
+    else
+    {
+        printf("Null pointer");
+    }
+}

@@ -1,18 +1,26 @@
 #ifndef GAME_TOOLS_H
 #define GAME_TOOLS_H
 
+#include <stdbool.h>
 #include <gtk/gtk.h>
 
+/* Inital label that will be shown before the game starts */
+#define FIRST_SQUARE_ID   1
+
+/* Inital label that will be shown before the game starts */
 #define INITIAL_LABEL_ROLL   "0"
 
 /* Path where the board image is stored */
 #define IMAGE_PATH_BOARD   "images/Board.png"
 
-/* Path where the board image is stored */
+/* Path where the red piece image is stored */
 #define IMAGE_PATH_RED_PIECE   "images/Pieces/red.png"
 
-/* Path where the board image is stored */
+/* Path where the blue piece image is stored */
 #define IMAGE_PATH_BLUE_PIECE   "images/Pieces/blue.png"
+
+/* Path where the square image is stored */
+#define IMAGE_PATH_SQUARE   "images/square.png"
 
 /* Square number zero where all the pieces start */
 #define INITIAL_SQUARE   0U
@@ -71,6 +79,21 @@ typedef struct player
     unsigned char turn;
 }Player;
 
+/* struct: square
+ * Square struct that contains all the fields use for a square
+ * 
+ * button: Each square is actually a Gtk button
+ * id: Identification number for each square, there cannot be 2 identical id's
+ * occupied: Will tell if square is occupied by a piece
+ * 
+ */
+typedef struct square
+{
+   GtkWidget* button;
+   unsigned int id;
+   bool occupied;
+}Square;
+
 /* Function: initialize_player
  * 
  * Initializes the structure of players
@@ -84,5 +107,12 @@ void initialize_player(Player* plyr, Player_side which_player);
  * 
  */
 void initialize_piece(Piece* pc, Player_side which_player);
+
+/* Function: initialize_square
+ *
+ * Initializes the structure of squares
+ * 
+ */
+void initialize_square(Square* sq, GtkWidget* image);
 
 #endif /*GAME_TOOLS_H*/
